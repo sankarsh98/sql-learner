@@ -124,7 +124,7 @@ Consider these additional improvements:
 
 ## How to Use
 
-Simply open `index.html` in any modern web browser. The app will automatically adapt to your screen size. On mobile devices:
+Simply open `https://sql-learner.netlify.app/` in any modern web browser. The app will automatically adapt to your screen size. On mobile devices:
 1. Tap the hamburger menu (☰) in the top-left to open lessons
 2. Select a lesson to begin
 3. The menu will close automatically
