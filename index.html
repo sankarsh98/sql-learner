@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Interactive SQL Learning Application - Master SQL through hands-on practice with real-time query execution">
+  <title>SQL Learner - Master SQL Through Practice</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- SQL.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon">📊</div>
+        <span class="logo-text">SQL Learner</span>
+      </div>
+      <div class="header-right">
+        <div class="progress-indicator">
+          <span id="progress-text">0 / 12 lessons</span>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Basics</div>
+        <ul class="lesson-list" id="basics-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Filtering & Sorting</div>
+        <ul class="lesson-list" id="filtering-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Aggregations</div>
+        <ul class="lesson-list" id="aggregations-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Joins</div>
+        <ul class="lesson-list" id="joins-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Date & String</div>
+        <ul class="lesson-list" id="functions-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Set Operations</div>
+        <ul class="lesson-list" id="sets-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Subqueries & CTEs</div>
+        <ul class="lesson-list" id="subqueries-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Window Functions</div>
+        <ul class="lesson-list" id="window-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Data Manipulation</div>
+        <ul class="lesson-list" id="dml-list"></ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="lesson-header">
+        <span class="lesson-category" id="lesson-category">Getting Started</span>
+        <h1 class="lesson-main-title" id="lesson-title">Welcome to SQL Learner</h1>
+        <p class="lesson-description" id="lesson-desc">Learn SQL through interactive exercises with instant feedback.
+        </p>
+      </div>
+
+      <div class="content-area">
+        <!-- Tutorial Panel -->
+        <section class="tutorial-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              Tutorial
+            </h2>
+            <button class="hint-btn" id="hint-btn" style="display: none;">
+              💡 Show Hint
+            </button>
+          </div>
+          <div class="panel-content">
+            <div class="tutorial-text" id="tutorial-content">
+              <h3>Welcome!</h3>
+              <p>This interactive application will teach you SQL from the ground up. You'll learn through practical
+                exercises using a sample database.</p>
+              <p>Select a lesson from the sidebar to begin your SQL journey!</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Editor Panel -->
+        <section class="editor-panel">
+          <div class="sql-editor-container">
+            <div class="panel-header">
+              <h2 class="panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                SQL Editor
+              </h2>
+            </div>
+            <div class="editor-wrapper">
+              <div class="line-numbers" id="line-numbers">1</div>
+              <textarea class="sql-editor" id="sql-editor" placeholder="Write your SQL query here..."
+                spellcheck="false"></textarea>
+            </div>
+            <div class="editor-actions">
+              <button class="btn btn-primary" id="run-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                Run Query
+              </button>
+              <button class="btn btn-secondary" id="clear-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+                Clear
+              </button>
+              <button class="btn btn-success" id="check-btn" style="display: none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Check Answer
+              </button>
+            </div>
+          </div>
+
+          <div class="results-panel">
+            <div class="panel-header">
+              <h2 class="panel-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Results
+              </h2>
+              <span id="row-count" style="font-size: 0.75rem; color: var(--text-muted);"></span>
+            </div>
+            <div class="results-content" id="results-content">
+              <div class="results-empty">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                </svg>
+                <p>Run a query to see results</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="feedback-container"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Schema Panel Toggle -->
+  <div class="schema-toggle">
+    <button class="btn btn-secondary" id="schema-toggle-btn">
+      📋 Schema
+    </button>
+  </div>
+
+  <!-- Schema Panel -->
+  <div class="schema-panel" id="schema-panel">
+    <div class="panel-header">
+      <h2 class="panel-title">Database Schema</h2>
+    </div>
+    <div class="schema-list" id="schema-list"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
