@@ -1109,6 +1109,51 @@ function attachEventListeners() {
   document.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); runQuery(); }
   });
+
+  // Mobile menu toggle
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  const sidebar = document.getElementById('sidebar');
+
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      sidebar.classList.toggle('open');
+      mobileOverlay.classList.toggle('active');
+      // Show/hide overlay
+      if (sidebar.classList.contains('open')) {
+        mobileOverlay.style.display = 'block';
+      }
+    });
+  }
+
+  // Close menu when clicking overlay
+  if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', () => {
+      mobileMenuToggle.classList.remove('active');
+      sidebar.classList.remove('open');
+      mobileOverlay.classList.remove('active');
+      setTimeout(() => {
+        if (!sidebar.classList.contains('open')) {
+          mobileOverlay.style.display = 'none';
+        }
+      }, 250);
+    });
+  }
+
+  // Close menu when selecting a lesson on mobile
+  document.querySelectorAll('.lesson-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        mobileMenuToggle.classList.remove('active');
+        sidebar.classList.remove('open');
+        mobileOverlay.classList.remove('active');
+        setTimeout(() => {
+          mobileOverlay.style.display = 'none';
+        }, 250);
+      }
+    });
+  });
 }
 
 function updateLineNumbers() {
