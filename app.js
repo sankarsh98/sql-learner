@@ -132,7 +132,7 @@ const lessons = [
     `,
     hint: 'Use WHERE department_id = 1 AND salary > 70000',
     exercise: {
-      validate: (results) => results.length === 1 && results[0].first_name === 'Alice'
+      validate: (results) => results.length === 2 && results.some(r => r.first_name === 'Alice') && results.some(r => r.first_name === 'Grace')
     },
     solution: 'SELECT * FROM employees WHERE department_id = 1 AND salary > 70000;'
   },
