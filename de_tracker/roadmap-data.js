@@ -17,26 +17,26 @@ const roadmapData = [
             {
                 id: 'py-1',
                 title: 'Python for Data Engineers (Full Course)',
-                provider: 'FreeCodeCamp',
+                provider: 'Ansh Lamba',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=rQ8vZYUknKE',
+                url: 'https://www.youtube.com/watch?v=dN2gaV9FxHI',
                 duration: '6+ hours'
             },
             {
                 id: 'py-2',
-                title: 'Python OOP & Design Patterns',
-                provider: 'Tech With Tim',
-                type: 'Video',
-                url: 'https://www.youtube.com/watch?v=JeznW_7DlB0',
+                title: 'Python OOP Tutorial',
+                provider: 'Corey Schafer',
+                type: 'Playlist',
+                url: 'https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc',
                 duration: '2 hours'
             },
             {
                 id: 'py-3',
-                title: 'Async Python & Concurrency',
-                provider: 'ArjanCodes',
+                title: 'Async Python Tutorial',
+                provider: 'Tech With Tim',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=2IW-ZEui4h4',
-                duration: '1 hour'
+                url: 'https://www.youtube.com/watch?v=t5Bo1Je9EmE',
+                duration: '1.5 hours'
             },
             {
                 id: 'py-4',
@@ -204,11 +204,11 @@ const roadmapData = [
             },
             {
                 id: 'spark-2',
-                title: 'PySpark Full Course (A to Z)',
-                provider: 'YouTube',
+                title: 'PySpark Full Course',
+                provider: 'Edureka',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=_C8kWso4ne4',
-                duration: '6+ hours'
+                url: 'https://www.youtube.com/watch?v=F2uWaX_UWqs',
+                duration: '5 hours'
             },
             {
                 id: 'spark-3',
@@ -241,11 +241,11 @@ const roadmapData = [
         courses: [
             {
                 id: 'orch-1',
-                title: 'Apache Airflow Tutorial for Beginners',
-                provider: 'YouTube (Marc Lamberti)',
-                type: 'Video',
-                url: 'https://www.youtube.com/watch?v=K9AnJ9_ZAXE',
-                duration: '2.5 hours'
+                title: 'Complete Airflow Tutorial',
+                provider: 'Data with Marc',
+                type: 'Playlist',
+                url: 'https://www.youtube.com/playlist?list=PLwFJcsJ61oujAqYT2y-n6OIlTryU-P4K6',
+                duration: '5+ hours'
             },
             {
                 id: 'orch-2',
@@ -294,11 +294,11 @@ const roadmapData = [
             },
             {
                 id: 'stream-2',
-                title: 'Kafka with Python (Full Tutorial)',
-                provider: 'YouTube',
+                title: 'Kafka Python Tutorial',
+                provider: 'Stephane Maarek',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=jItIQ-UvFI4',
-                duration: '1 hour'
+                url: 'https://www.youtube.com/watch?v=sdUqD7O7HDs',
+                duration: '45 min'
             },
             {
                 id: 'stream-3',
@@ -376,19 +376,19 @@ const roadmapData = [
         courses: [
             {
                 id: 'dev-1',
-                title: 'Docker for Beginners (Full Course)',
+                title: 'Docker Tutorial for Beginners',
                 provider: 'TechWorld with Nana',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=3c-iBn73dDE',
-                duration: '3 hours'
+                url: 'https://www.youtube.com/watch?v=pg19Z8LL06w',
+                duration: '1 hour'
             },
             {
                 id: 'dev-2',
-                title: 'Git & GitHub for Data Engineers',
-                provider: 'DataTalks.Club',
+                title: 'Git and GitHub Tutorial',
+                provider: 'Amigoscode',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=8JJ101D3knE',
-                duration: '1.5 hours'
+                url: 'https://www.youtube.com/watch?v=3fUbBnN_H2c',
+                duration: '1 hour'
             },
             {
                 id: 'dev-3',
