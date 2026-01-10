@@ -30,6 +30,10 @@ const lessons = [
       <p>Select multiple columns by name to see just what you need.</p>
     `,
     hint: 'Use SELECT * FROM employees;',
+    resources: [
+      { title: 'W3Schools: SQL SELECT', url: 'https://www.w3schools.com/sql/sql_select.asp' },
+      { title: 'SQLBolt: SELECT queries', url: 'https://sqlbolt.com/lesson/select_queries_introduction' }
+    ],
     exercise: {
       validate: (results) => results.length > 0
     },
@@ -49,6 +53,9 @@ const lessons = [
       <p>Select only <code>first_name</code> and <code>salary</code> from the <code>employees</code> table.</p>
     `,
     hint: 'SELECT first_name, salary ...',
+    resources: [
+      { title: 'Sqltutorial: SELECT', url: 'https://www.sqlitetutorial.net/sqlite-select/' }
+    ],
     exercise: {
       expectedColumns: ['first_name', 'salary'],
       validate: (results, expected, columns) => columns.length === 2 && columns.includes('first_name') && columns.includes('salary')
@@ -69,6 +76,9 @@ const lessons = [
       <p>Get a list of all unique <code>city</code> names from the <code>customers</code> table.</p>
     `,
     hint: 'Use SELECT DISTINCT city...',
+    resources: [
+      { title: 'W3Schools: SQL DISTINCT', url: 'https://www.w3schools.com/sql/sql_distinct.asp' }
+    ],
     exercise: {
       validate: (results) => results.length === 3 && results.every((r, i, arr) => arr.findIndex(x => x.city === r.city) === i)
     },
@@ -88,6 +98,9 @@ const lessons = [
       <p>Select the first 3 rows from the <code>products</code> table.</p>
     `,
     hint: 'Add LIMIT 3 to the end of your query.',
+    resources: [
+      { title: 'SQLite LIMIT', url: 'https://www.sqlitetutorial.net/sqlite-limit/' }
+    ],
     exercise: {
       validate: (results) => results.length === 3
     },
@@ -111,6 +124,9 @@ const lessons = [
       <p>Find all products with a <code>price</code> of exactly <strong>29.99</strong>.</p>
     `,
     hint: 'WHERE price = 29.99',
+    resources: [
+      { title: 'W3Schools: SQL WHERE', url: 'https://www.w3schools.com/sql/sql_where.asp' }
+    ],
     exercise: {
       validate: (results) => results.length > 0 && results.every(r => r.price === 29.99)
     },
@@ -131,6 +147,9 @@ const lessons = [
       <p>Find employees in department <strong>1</strong> who earn <strong>more than 70000</strong>.</p>
     `,
     hint: 'Use WHERE department_id = 1 AND salary > 70000',
+    resources: [
+      { title: 'W3Schools: AND, OR, NOT', url: 'https://www.w3schools.com/sql/sql_and_or.asp' }
+    ],
     exercise: {
       validate: (results) => results.length === 2 && results.some(r => r.first_name === 'Alice') && results.some(r => r.first_name === 'Grace')
     },
@@ -151,6 +170,9 @@ const lessons = [
       <p>Find all orders for customer IDs <strong>1</strong> and <strong>3</strong>.</p>
     `,
     hint: 'WHERE customer_id IN (1, 3)',
+    resources: [
+      { title: 'W3Schools: SQL IN', url: 'https://www.w3schools.com/sql/sql_in.asp' }
+    ],
     exercise: {
       validate: (results) => results.length > 0 && results.every(r => [1, 3].includes(r.customer_id))
     },
@@ -171,6 +193,9 @@ const lessons = [
       <p>Find employees hired between <strong>'2021-01-01'</strong> and <strong>'2022-01-01'</strong>.</p>
     `,
     hint: "WHERE hire_date BETWEEN '2021-01-01' AND '2022-01-01'",
+    resources: [
+      { title: 'W3Schools: SQL BETWEEN', url: 'https://www.w3schools.com/sql/sql_between.asp' }
+    ],
     exercise: {
       validate: (results) => results.length > 0 && results.every(r => r.hire_date >= '2021-01-01' && r.hire_date <= '2022-01-01')
     },
@@ -189,6 +214,9 @@ const lessons = [
       <p>Find all products with names starting with <strong>'Desk'</strong>.</p>
     `,
     hint: "WHERE name LIKE 'Desk%'",
+    resources: [
+      { title: 'W3Schools: SQL LIKE', url: 'https://www.w3schools.com/sql/sql_like.asp' }
+    ],
     exercise: {
       validate: (results) => results.length > 0 && results.every(r => r.name.startsWith('Desk'))
     },
@@ -207,6 +235,9 @@ const lessons = [
       <p>Find all departments that have <strong>no location</strong> specified (location is NULL).</p>
     `,
     hint: 'WHERE location IS NULL',
+    resources: [
+      { title: 'W3Schools: SQL NULL', url: 'https://www.w3schools.com/sql/sql_null_values.asp' }
+    ],
     exercise: {
       validate: (results) => results.length === 1 && results[0].name === 'Remote Teams'
     },
@@ -225,6 +256,9 @@ const lessons = [
       <p>List all products sorted by <strong>price</strong> from highest to lowest.</p>
     `,
     hint: 'ORDER BY price DESC',
+    resources: [
+      { title: 'W3Schools: SQL ORDER BY', url: 'https://www.w3schools.com/sql/sql_orderby.asp' }
+    ],
     exercise: {
       validate: (results) => {
         if (results.length < 2) return false;
@@ -248,6 +282,9 @@ const lessons = [
       <p>Sort employees by <code>department_id</code> (ascending) and then by <code>last_name</code> (ascending).</p>
     `,
     hint: 'ORDER BY department_id ASC, last_name ASC',
+    resources: [
+      { title: 'SQL ORDER BY Multiple Columns', url: 'https://www.sqlitetutorial.net/sqlite-order-by/' }
+    ],
     exercise: {
       validate: (results) => results.length > 5 // Simple check, advanced check requires logic
     },
@@ -270,6 +307,9 @@ const lessons = [
       <p>Select the <code>first_name</code> of all employees in <strong>uppercase</strong>.</p>
     `,
     hint: 'SELECT UPPER(first_name) FROM employees',
+    resources: [
+      { title: 'SQLite Upper Function', url: 'https://www.sqlitetutorial.net/sqlite-upper/' }
+    ],
     exercise: {
       validate: (results, expected, columns) => results.some(r => r[columns[0]] === 'ALICE')
     },
@@ -289,6 +329,9 @@ const lessons = [
       <p>Create a column <code>full_name</code> combining first and last name with a space.</p>
     `,
     hint: "SELECT first_name || ' ' || last_name AS full_name ...",
+    resources: [
+      { title: 'SQLite String Concatenation', url: 'https://www.sqlitetutorial.net/sqlite-functions/sqlite-concat/' }
+    ],
     exercise: {
       validate: (results, expected, columns) => results[0].full_name === 'Alice Johnson'
     },
@@ -307,6 +350,9 @@ const lessons = [
       <p>Select the first <strong>3 characters</strong> of every employee's <code>last_name</code>.</p>
     `,
     hint: 'SUBSTR(last_name, 1, 3)',
+    resources: [
+      { title: 'SQLite SUBSTR', url: 'https://www.sqlitetutorial.net/sqlite-substr/' }
+    ],
     exercise: {
       validate: (results, expected, columns) => results[0][columns[0]] === 'Joh'
     },
@@ -325,6 +371,9 @@ const lessons = [
       <p>Find employees whose <code>last_name</code> has more than <strong>5</strong> characters.</p>
     `,
     hint: 'WHERE LENGTH(last_name) > 5',
+    resources: [
+      { title: 'SQLite LENGTH', url: 'https://www.sqlitetutorial.net/sqlite-length/' }
+    ],
     exercise: {
       validate: (results) => results.every(r => r.last_name.length > 5)
     },
@@ -343,6 +392,9 @@ const lessons = [
       <p>Select the <strong>year</strong> of hire for every employee.</p>
     `,
     hint: "strftime('%Y', hire_date)",
+    resources: [
+      { title: 'SQLite Date Functions', url: 'https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-strftime-function/' }
+    ],
     exercise: {
       validate: (results, expected, columns) => results.some(r => r[columns[0]] === '2021')
     },
@@ -360,6 +412,9 @@ const lessons = [
     description: 'Count total rows.',
     content: '<h3>Task</h3><p>Count all rows in the <code>orders</code> table.</p>',
     hint: 'SELECT COUNT(*) FROM orders',
+    resources: [
+      { title: 'W3Schools: SQL COUNT', url: 'https://www.w3schools.com/sql/sql_count_avg_sum.asp' }
+    ],
     exercise: { validate: (r) => Object.values(r[0])[0] === 10 },
     solution: 'SELECT COUNT(*) FROM orders;'
   },
@@ -371,6 +426,9 @@ const lessons = [
     description: 'Calculate total value.',
     content: '<h3>Task</h3><p>Calculate the total <code>stock</code> of all products.</p>',
     hint: 'SUM(stock)',
+    resources: [
+      { title: 'W3Schools: SQL SUM', url: 'https://www.w3schools.com/sql/sql_count_avg_sum.asp' }
+    ],
     exercise: { validate: (r) => Object.values(r[0])[0] === 975 },
     solution: 'SELECT SUM(stock) FROM products;'
   },
@@ -382,6 +440,9 @@ const lessons = [
     description: 'Calculate average value.',
     content: '<h3>Task</h3><p>Find the average <code>price</code> of products.</p>',
     hint: 'AVG(price)',
+    resources: [
+      { title: 'W3Schools: SQL AVG', url: 'https://www.w3schools.com/sql/sql_count_avg_sum.asp' }
+    ],
     exercise: { validate: (r) => Math.floor(Object.values(r[0])[0]) === 327 },
     solution: 'SELECT AVG(price) FROM products;'
   },
@@ -393,6 +454,9 @@ const lessons = [
     description: 'Find extremes.',
     content: '<h3>Task</h3><p>Find the lowest and highest salary in the <code>employees</code> table.</p>',
     hint: 'MIN(salary), MAX(salary)',
+    resources: [
+      { title: 'W3Schools: SQL MIN/MAX', url: 'https://www.w3schools.com/sql/sql_min_max.asp' }
+    ],
     exercise: { validate: (r, e, cols) => cols.length === 2 },
     solution: 'SELECT MIN(salary), MAX(salary) FROM employees;'
   },
@@ -404,6 +468,9 @@ const lessons = [
     description: 'Group rows by values.',
     content: '<h3>Task</h3><p>Count how many employees are in each <code>department_id</code>.</p>',
     hint: 'GROUP BY department_id',
+    resources: [
+      { title: 'W3Schools: SQL GROUP BY', url: 'https://www.w3schools.com/sql/sql_groupby.asp' }
+    ],
     exercise: { validate: (r) => r.length > 1 && r[0].department_id },
     solution: 'SELECT department_id, COUNT(*) FROM employees GROUP BY department_id;'
   },
@@ -420,6 +487,9 @@ const lessons = [
       <p>Find department IDs that have <strong>more than 2</strong> employees.</p>
     `,
     hint: 'GROUP BY... HAVING COUNT(*) > 2',
+    resources: [
+      { title: 'W3Schools: SQL HAVING', url: 'https://www.w3schools.com/sql/sql_having.asp' }
+    ],
     exercise: { validate: (r) => r.every(row => row.department_id === 1 || row.department_id === 3) },
     solution: 'SELECT department_id FROM employees GROUP BY department_id HAVING COUNT(*) > 2;'
   },
@@ -435,6 +505,9 @@ const lessons = [
     description: 'Match rows in both tables.',
     content: '<h3>Task</h3><p>Show employee names and their department names.</p>',
     hint: 'JOIN departments ON ...',
+    resources: [
+      { title: 'W3Schools: INNER JOIN', url: 'https://www.w3schools.com/sql/sql_join_inner.asp' }
+    ],
     exercise: { validate: (r) => r.length > 0 && r[0].name && r[0].first_name },
     solution: 'SELECT e.first_name, d.name FROM employees e JOIN departments d ON e.department_id = d.id;'
   },
@@ -446,6 +519,9 @@ const lessons = [
     description: 'Keep all left rows.',
     content: '<h3>Task</h3><p>Show all departments and their employees (if any). Include departments with no employees.</p>',
     hint: 'FROM departments LEFT JOIN employees...',
+    resources: [
+      { title: 'W3Schools: LEFT JOIN', url: 'https://www.w3schools.com/sql/sql_join_left.asp' }
+    ],
     exercise: { validate: (r) => r.length > 8 }, // 8 employees + empty depts
     solution: 'SELECT * FROM departments d LEFT JOIN employees e ON d.id = e.department_id;'
   },
@@ -462,6 +538,9 @@ const lessons = [
       <p>Perform a CROSS JOIN between <code>products</code> and <code>departments</code>.</p>
     `,
     hint: 'FROM products CROSS JOIN departments',
+    resources: [
+      { title: 'SQLite CROSS JOIN', url: 'https://www.sqlitetutorial.net/sqlite-cross-join/' }
+    ],
     exercise: { validate: (r) => r.length === 25 }, // 5 products * 5 depts
     solution: 'SELECT * FROM products CROSS JOIN departments;'
   },
@@ -478,6 +557,9 @@ const lessons = [
       <p>Find pairs of employees who work in the same department.</p>
     `,
     hint: 'FROM employees e1 JOIN employees e2 ON e1.department_id = e2.department_id AND e1.id != e2.id',
+    resources: [
+      { title: 'W3Schools: SQL Self Join', url: 'https://www.w3schools.com/sql/sql_join_self.asp' }
+    ],
     exercise: { validate: (r) => r.length > 0 },
     solution: 'SELECT e1.first_name, e2.first_name FROM employees e1 JOIN employees e2 ON e1.department_id = e2.department_id AND e1.id != e2.id;'
   },
@@ -501,6 +583,9 @@ SELECT name FROM departments</pre></div>
       <p>Return a single list of names from both <code>employees</code> (first_name) and <code>customers</code> (name).</p>
     `,
     hint: 'SELECT first_name FROM employees UNION SELECT name FROM customers',
+    resources: [
+      { title: 'W3Schools: SQL UNION', url: 'https://www.w3schools.com/sql/sql_union.asp' }
+    ],
     exercise: { validate: (r) => r.length >= 11 },
     solution: 'SELECT first_name FROM employees UNION SELECT name FROM customers;'
   },
@@ -517,6 +602,9 @@ SELECT name FROM departments</pre></div>
       <p>Combine all <code>department_id</code>s from <code>employees</code> and <code>departments</code> using UNION ALL.</p>
     `,
     hint: 'UNION ALL',
+    resources: [
+      { title: 'SQLite UNION ALL', url: 'https://www.sqlitetutorial.net/sqlite-union/' }
+    ],
     exercise: { validate: (r) => r.length === 13 },
     solution: 'SELECT department_id FROM employees UNION ALL SELECT id FROM departments;'
   },
@@ -533,6 +621,9 @@ SELECT name FROM departments</pre></div>
       <p>Find <code>id</code>s of products that have <strong>never</strong> been ordered.</p>
     `,
     hint: 'SELECT id FROM products EXCEPT SELECT product_id FROM orders',
+    resources: [
+      { title: 'SQLite EXCEPT', url: 'https://www.sqlitetutorial.net/sqlite-except/' }
+    ],
     exercise: { validate: (r) => r.length === 0 }, // All sample products have orders? Wait, check data.
     solution: 'SELECT id FROM products EXCEPT SELECT product_id FROM orders;'
   },
@@ -549,6 +640,9 @@ SELECT name FROM departments</pre></div>
       <p>Find <code>city</code> names that exist in both <code>customers</code> and <code>departments</code> (assumed location is city).</p>
     `,
     hint: 'SELECT city FROM customers INTERSECT SELECT location FROM departments',
+    resources: [
+      { title: 'SQLite INTERSECT', url: 'https://www.sqlitetutorial.net/sqlite-intersect/' }
+    ],
     exercise: { validate: (r) => true }, // depends on data
     solution: 'SELECT city FROM customers INTERSECT SELECT location FROM departments;'
   },
@@ -564,6 +658,9 @@ SELECT name FROM departments</pre></div>
     description: 'Filter based on another query.',
     content: '<h3>Task</h3><p>Find employees with salary greater than the average salary.</p>',
     hint: 'WHERE salary > (SELECT AVG(salary)...)',
+    resources: [
+      { title: 'W3Schools: SQL Subqueries', url: 'https://www.sqltutorial.org/sql-subquery/' }
+    ],
     exercise: { validate: (r) => r.length > 0 && r.every(row => row.salary > 63000) },
     solution: 'SELECT * FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);'
   },
@@ -575,6 +672,9 @@ SELECT name FROM departments</pre></div>
     description: 'Calculate values per row.',
     content: '<h3>Task</h3><p>Select employee name and the difference between their salary and the average salary.</p>',
     hint: 'SELECT salary - (SELECT AVG(salary) FROM employees) ...',
+    resources: [
+      { title: 'SQLite Subquery', url: 'https://www.sqlitetutorial.net/sqlite-subquery/' }
+    ],
     exercise: { validate: (r, e, c) => c.length >= 2 },
     solution: 'SELECT first_name, salary - (SELECT AVG(salary) FROM employees) as diff FROM employees;'
   },
@@ -595,6 +695,9 @@ SELECT name FROM departments</pre></div>
       <p>Define a CTE <code>Engineering</code> for department 1, then select all form it.</p>
     `,
     hint: 'WITH Engineering AS (SELECT * FROM employees WHERE department_id = 1)...',
+    resources: [
+      { title: 'SQLite CTE', url: 'https://www.sqlitetutorial.net/sqlite-cte/' }
+    ],
     exercise: { validate: (r) => r.length === 3 },
     solution: 'WITH Engineering AS (SELECT * FROM employees WHERE department_id = 1) SELECT * FROM Engineering;'
   },
@@ -617,6 +720,9 @@ SELECT name FROM departments</pre></div>
       <p>Generate a sequence of numbers from 1 to 5.</p>
     `,
     hint: 'WHERE x < 5',
+    resources: [
+      { title: 'SQLite Recursive CTE', url: 'https://www.sqlitetutorial.net/sqlite-cte/' }
+    ],
     exercise: { validate: (r) => r.length === 5 && r[4].x === 5 },
     solution: 'WITH RECURSIVE cnt(x) AS (SELECT 1 UNION ALL SELECT x+1 FROM cnt WHERE x < 5) SELECT * FROM cnt;'
   },
@@ -637,6 +743,9 @@ SELECT name FROM departments</pre></div>
       <p>Assign a row number to employees based on their salary (highest first).</p>
     `,
     hint: 'ROW_NUMBER() OVER (ORDER BY salary DESC)',
+    resources: [
+      { title: 'SQLite ROW_NUMBER', url: 'https://www.sqlitetutorial.net/sqlite-window-functions/sqlite-row_number/' }
+    ],
     exercise: { validate: (r, e, c) => r[0][c[0]] === 1 || r[0][c[1]] === 1 },
     solution: 'SELECT *, ROW_NUMBER() OVER (ORDER BY salary DESC) as rn FROM employees;'
   },
@@ -653,6 +762,9 @@ SELECT name FROM departments</pre></div>
       <p>Rank employees by salary. If two have the same salary, they should share a rank.</p>
     `,
     hint: 'RANK() OVER (ORDER BY salary DESC)',
+    resources: [
+      { title: 'SQLite RANK', url: 'https://www.sqlitetutorial.net/sqlite-window-functions/sqlite-rank/' }
+    ],
     exercise: { validate: (r) => r.length > 0 }, // Need data with ties to verify gap
     solution: 'SELECT *, RANK() OVER (ORDER BY salary DESC) as rnk FROM employees;'
   },
@@ -669,6 +781,9 @@ SELECT name FROM departments</pre></div>
       <p>Use <code>DENSE_RANK</code> to rank employees by salary.</p>
     `,
     hint: 'DENSE_RANK() OVER (ORDER BY salary DESC)',
+    resources: [
+      { title: 'SQLite DENSE_RANK', url: 'https://www.sqlitetutorial.net/sqlite-window-functions/sqlite-dense_rank/' }
+    ],
     exercise: { validate: (r) => r.length > 0 },
     solution: 'SELECT *, DENSE_RANK() OVER (ORDER BY salary DESC) as dr FROM employees;'
   },
@@ -689,6 +804,9 @@ SELECT name FROM departments</pre></div>
       <p>Rank employees <strong>within each department</strong> by salary.</p>
     `,
     hint: 'RANK() OVER (PARTITION BY department_id ORDER BY salary DESC)',
+    resources: [
+      { title: 'SQL Window Functions', url: 'https://mode.com/sql-tutorial/sql-window-functions/' }
+    ],
     exercise: { validate: (r) => r.filter(x => x.rank === 1 || Object.values(x).some(v => v === 1)).length >= 3 },
     solution: 'SELECT *, RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) as rank FROM employees;'
   },
@@ -705,6 +823,9 @@ SELECT name FROM departments</pre></div>
       <p>Show each employee's salary and the salary of the <strong>previous</strong> employee (ordered by hire_date).</p>
     `,
     hint: 'LAG(salary) OVER (ORDER BY hire_date)',
+    resources: [
+      { title: 'SQLite LAG', url: 'https://www.sqlitetutorial.net/sqlite-window-functions/sqlite-lag/' }
+    ],
     exercise: { validate: (r, e, c) => c.some(name => name.toLowerCase().includes('lag')) },
     solution: 'SELECT salary, LAG(salary) OVER (ORDER BY hire_date) FROM employees;'
   },
@@ -724,6 +845,9 @@ SELECT name FROM departments</pre></div>
       <p>Calculate a running total of salaries ordered by hire date.</p>
     `,
     hint: 'SUM(salary) OVER (ORDER BY hire_date)',
+    resources: [
+      { title: 'SQL Running Total', url: 'https://www.sqlitetutorial.net/sqlite-window-functions/' }
+    ],
     exercise: { validate: (r, e, c) => r[r.length - 1].total > r[0].total || Object.values(r[r.length - 1])[1] > Object.values(r[0])[1] },
     solution: 'SELECT *, SUM(salary) OVER (ORDER BY hire_date) as total FROM employees;'
   },
@@ -745,6 +869,9 @@ SELECT name FROM departments</pre></div>
       <p>Insert a new department into <code>departments</code> with ID <strong>6</strong> and name <strong>'Research'</strong>.</p>
     `,
     hint: "INSERT INTO departments VALUES (6, 'Research', NULL)",
+    resources: [
+      { title: 'W3Schools: SQL INSERT', url: 'https://www.w3schools.com/sql/sql_insert.asp' }
+    ],
     exercise: {
       type: 'mutation',
       validate: (db) => {
@@ -771,6 +898,9 @@ SELECT name FROM departments</pre></div>
       <p>Update employee <strong>1</strong>'s salary to <strong>90000</strong>.</p>
     `,
     hint: 'UPDATE employees SET salary = 90000 WHERE id = 1',
+    resources: [
+      { title: 'W3Schools: SQL UPDATE', url: 'https://www.w3schools.com/sql/sql_update.asp' }
+    ],
     exercise: {
       type: 'mutation',
       validate: (db) => {
@@ -793,6 +923,9 @@ SELECT name FROM departments</pre></div>
       <p>Delete the department with ID <strong>2</strong>.</p>
     `,
     hint: 'DELETE FROM departments WHERE id = 2',
+    resources: [
+      { title: 'W3Schools: SQL DELETE', url: 'https://www.w3schools.com/sql/sql_delete.asp' }
+    ],
     exercise: {
       type: 'mutation',
       validate: (db) => {
@@ -819,6 +952,9 @@ SELECT name FROM departments</pre></div>
       <p>Split employees into <strong>4</strong> groups based on salary.</p>
     `,
     hint: 'NTILE(4) OVER (ORDER BY salary)',
+    resources: [
+      { title: 'SQLite NTILE', url: 'https://www.sqlitetutorial.net/sqlite-window-functions/sqlite-ntile/' }
+    ],
     exercise: { validate: (r, e, c) => r.some(x => Object.values(x).some(v => v === 4)) },
     solution: 'SELECT *, NTILE(4) OVER (ORDER BY salary) as quartile FROM employees;'
   },
@@ -835,6 +971,9 @@ SELECT name FROM departments</pre></div>
       <p>Show each employee alongside the highest paid employee's name (first name) in the entire company.</p>
     `,
     hint: "FIRST_VALUE(first_name) OVER (ORDER BY salary DESC)",
+    resources: [
+      { title: 'SQLite FIRST_VALUE', url: 'https://www.sqlitetutorial.net/sqlite-window-functions/sqlite-first_value/' }
+    ],
     exercise: { validate: (r, e, c) => r.every(x => Object.values(x).includes('Grace')) },
     solution: 'SELECT *, FIRST_VALUE(first_name) OVER (ORDER BY salary DESC) as top_earner FROM employees;'
   },
@@ -852,6 +991,9 @@ SELECT name FROM departments</pre></div>
       <p>Sort departments by location, putting NULLs at the end.</p>
     `,
     hint: 'ORDER BY location IS NULL, location',
+    resources: [
+      { title: 'PostgreSQL NULLS LAST', url: 'https://www.postgresql.org/docs/current/queries-order.html' }
+    ],
     exercise: { validate: (r) => r[r.length - 1].location === null },
     solution: 'SELECT * FROM departments ORDER BY location IS NULL, location;'
   },
@@ -868,12 +1010,13 @@ SELECT name FROM departments</pre></div>
       <p>Select department name and location. If location is NULL, display <strong>'Unknown'</strong>.</p>
     `,
     hint: "COALESCE(location, 'Unknown')",
+    resources: [
+      { title: 'SQLite COALESCE', url: 'https://www.sqlitetutorial.net/sqlite-coalesce/' }
+    ],
     exercise: { validate: (r) => r.some(x => Object.values(x).includes('Unknown')) },
     solution: "SELECT name, COALESCE(location, 'Unknown') FROM departments;"
   }
 ];
-
-// =============================================
 // DATABASE SCHEMA & DATA
 // =============================================
 const schema = {
@@ -1005,6 +1148,7 @@ async function init() {
     renderLessonList();
     renderSchema();
     updateProgress();
+    initTheme();
     attachEventListeners();
 
     // Collapsible sections logic
@@ -1086,7 +1230,18 @@ function loadLesson(lesson) {
   lessonCategory.textContent = lesson.category;
   lessonTitle.textContent = lesson.title;
   lessonDesc.textContent = lesson.description;
-  tutorialContent.innerHTML = lesson.content;
+  let contentHtml = lesson.content;
+
+  if (lesson.resources && lesson.resources.length > 0) {
+    contentHtml += `
+      <h3>Resources</h3>
+      <ul>
+        ${lesson.resources.map(r => `<li><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.title}</a></li>`).join('')}
+      </ul>
+    `;
+  }
+
+  tutorialContent.innerHTML = contentHtml;
 
   checkBtn.style.display = 'inline-flex';
   hintBtn.style.display = 'inline-block';
@@ -1305,3 +1460,33 @@ function showConfetti() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+function initTheme() {
+  const themeSelect = document.getElementById('theme-select');
+  const savedTheme = localStorage.getItem('theme') || 'default';
+  
+  // Apply saved theme
+  if (savedTheme !== 'default') {
+    document.body.classList.add(savedTheme);
+  }
+  
+  // Update selector value
+  if (themeSelect) {
+    themeSelect.value = savedTheme;
+    
+    themeSelect.addEventListener('change', (e) => {
+      const newTheme = e.target.value;
+      
+      // Remove all theme classes
+      document.body.classList.remove('theme-light', 'theme-midnight', 'theme-forest');
+      
+      // Add new theme class if not default
+      if (newTheme !== 'default') {
+        document.body.classList.add(newTheme);
+      }
+      
+      // Save preference
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+}

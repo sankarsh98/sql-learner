@@ -192,7 +192,7 @@ body {
   background: var(--bg-darker);
   border-right: 1px solid var(--border-color);
   overflow-y: auto;
-  padding: var(--space-lg) 0;
+  padding: var(--space-lg) 0 var(--space-2xl);
 }
 
 .sidebar-section {

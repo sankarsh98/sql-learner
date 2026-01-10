@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DE Roadmap 2026 | Progress Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">🚀</div>
+                <div class="logo-text">
+                    <span class="logo-title">Data Engineering Roadmap</span>
+                    <span class="logo-subtitle">2026 Edition • 5+ Years Experience</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="overall-progress">
+                    <span id="overall-text">0% Complete</span>
+                    <div class="progress-bar-lg">
+                        <div class="progress-fill-lg" id="overall-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+                <button id="reset-btn" class="btn btn-secondary" title="Reset all progress">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                        <path d="M3 3v5h5"></path>
+                    </svg>
+                    Reset
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="intro-section">
+                <h1>Master Data Engineering in 2026</h1>
+                <p>A curated roadmap with <strong>free resources</strong> for senior data engineers. Track your
+                    progress, expand your skills, and stay ahead of the curve.</p>
+            </div>
+
+            <div class="roadmap-grid" id="roadmap-container">
+                <!-- Categories will be injected by JavaScript -->
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with ❤️ for Data Engineers • Resources are free and verified as of 2026</p>
+        </footer>
+    </div>
+
+    <script src="roadmap-data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

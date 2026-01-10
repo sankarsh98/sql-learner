@@ -7,6 +7,7 @@
   <meta name="description"
     content="Interactive SQL Learning Application - Master SQL through hands-on practice with real-time query execution">
   <title>SQL Learner - Master SQL Through Practice</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +37,14 @@
         <span class="logo-text">SQL Learner</span>
       </div>
       <div class="header-right">
+        <div class="theme-selector">
+          <select id="theme-select" class="theme-select" aria-label="Select Theme">
+            <option value="default">Default Dark</option>
+            <option value="theme-light">Light Mode</option>
+            <option value="theme-midnight">Midnight Blue</option>
+            <option value="theme-forest">Forest Green</option>
+          </select>
+        </div>
         <div class="progress-indicator">
           <span id="progress-text">0 / 12 lessons</span>
           <div class="progress-bar">
@@ -47,6 +56,19 @@
 
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-title">Tracks</div>
+        <ul class="lesson-list">
+          <li class="lesson-item active" style="background: linear-gradient(90deg, hsla(220, 95%, 60%, 0.15), transparent); border-left-color: var(--primary);">
+            <div class="lesson-status completed">📊</div>
+            <span class="lesson-title">SQL Learner</span>
+          </li>
+          <li class="lesson-item" onclick="window.location.href='/python/'">
+            <div class="lesson-status pending">Py</div>
+            <span class="lesson-title">Python Learner</span>
+          </li>
+        </ul>
+      </div>
       <div class="sidebar-section">
         <div class="sidebar-title">Basics</div>
         <ul class="lesson-list" id="basics-list"></ul>

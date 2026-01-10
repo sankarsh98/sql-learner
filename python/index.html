@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Interactive Python Data Engineering Tutor - Master Pandas, NumPy, and Data Skills">
+  <title>Python DE Learner - Master Data Engineering</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Pyodide Library -->
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Python specific overrides */
+    :root {
+      --primary-hue: 45; /* Python Yellow/Blue theme */
+      --primary: hsl(45, 90%, 55%);
+      --primary-light: hsl(45, 90%, 65%);
+      --primary-dark: hsl(45, 90%, 40%);
+      --accent-blue: hsl(210, 60%, 50%);
+    }
+
+    .logo-icon {
+      background: linear-gradient(135deg, var(--accent-blue), var(--primary));
+      color: white;
+      font-weight: bold;
+    }
+    
+    .keyword { color: #cf8e6d; } /* Orange */
+    .string { color: #6a8759; } /* Green */
+    .number { color: #6897bb; } /* Blue */
+    .function { color: #ffc66d; } /* Yellow */
+    .comment { color: #808080; } /* Grey */
+
+    /* Console Output Styling */
+    .console-output {
+      font-family: var(--font-mono);
+      white-space: pre-wrap;
+      color: var(--text-primary);
+      font-size: 0.85rem;
+    }
+    .console-success { color: var(--accent-green); }
+    .console-error { color: var(--accent-red); }
+    
+    /* DataFrame Table Styling */
+    .dataframe {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.85rem;
+    }
+    .dataframe th, .dataframe td {
+      border: 1px solid var(--border-color);
+      padding: 4px 8px;
+      text-align: left;
+    }
+    .dataframe th {
+      background-color: var(--bg-medium);
+      font-weight: 600;
+    }
+    
+    #loading-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--bg-darkest);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      transition: opacity 0.5s ease;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid var(--bg-light);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+  </style>
+</head>
+
+<body>
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <h2 style="color: var(--text-primary)">Initializing Python Environment...</h2>
+    <p style="color: var(--text-secondary)">Loading Pyodide, Pandas, and NumPy</p>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="logo">
+        <div class="logo-icon">Py</div>
+        <span class="logo-text">DE Learner</span>
+      </div>
+      <div class="header-right">
+        <button id="reset-progress-btn" class="btn btn-secondary" title="Clear all progress">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+            <path d="M3 3v5h5"></path>
+          </svg>
+          Reset Progress
+        </button>
+        <div class="theme-selector">
+          <select id="theme-select" class="theme-select" aria-label="Select Theme">
+            <option value="default">Default Dark</option>
+            <option value="theme-light">Light Mode</option>
+            <option value="theme-midnight">Midnight Blue</option>
+            <option value="theme-forest">Forest Green</option>
+          </select>
+        </div>
+        <div class="progress-indicator">
+          <span id="progress-text">0 / 42 levels</span>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+       <!-- Sections will be populated by JS -->
+      <div class="sidebar-section">
+        <div class="sidebar-title">Tracks</div>
+        <ul class="lesson-list">
+          <li class="lesson-item" onclick="window.location.href='/'">
+            <div class="lesson-status completed">📊</div>
+            <span class="lesson-title">SQL Learner</span>
+          </li>
+          <li class="lesson-item active" style="background: linear-gradient(90deg, hsla(45, 90%, 55%, 0.15), transparent); border-left-color: var(--primary);">
+            <div class="lesson-status pending">Py</div>
+            <span class="lesson-title">Python Learner</span>
+          </li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">1. Python Basics</div>
+        <ul class="lesson-list" id="basics-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">2. NumPy Fundamentals</div>
+        <ul class="lesson-list" id="numpy-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">3. Pandas Core</div>
+        <ul class="lesson-list" id="pandas-core-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">4. Data Cleaning</div>
+        <ul class="lesson-list" id="cleaning-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">5. Aggregation & Grouping</div>
+        <ul class="lesson-list" id="grouping-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">6. Merging & Joining</div>
+        <ul class="lesson-list" id="merging-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">7. Time Series</div>
+        <ul class="lesson-list" id="timeseries-list"></ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">8. Advanced Engineering</div>
+        <ul class="lesson-list" id="advanced-list"></ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="lesson-header">
+        <span class="lesson-category" id="lesson-category">Welcome</span>
+        <h1 class="lesson-main-title" id="lesson-title">Python Data Engineering</h1>
+        <p class="lesson-description" id="lesson-desc">Master the tools of the trade: Pandas, NumPy, and efficient data processing.</p>
+      </div>
+
+      <div class="content-area">
+        <!-- Tutorial Panel -->
+        <section class="tutorial-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Task & Instructions</h2>
+            <button class="hint-btn" id="hint-btn" style="display: none;">💡 Show Hint</button>
+          </div>
+          <div class="panel-content">
+            <div class="tutorial-text" id="tutorial-content">
+              <h3>Welcome to the Python Data Engineering Track!</h3>
+              <p>This interactive environment runs a full Python kernel in your browser using Pyodide.</p>
+              <p>You will solve 150 exercises ranging from basic syntax to complex data pipelines using Pandas.</p>
+              <p><strong>Note:</strong> Initial loading may take a few seconds as we download the Python runtime.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Editor Panel -->
+        <section class="editor-panel">
+          <div class="sql-editor-container">
+            <div class="panel-header">
+              <h2 class="panel-title">Python Editor</h2>
+            </div>
+            <div class="editor-wrapper">
+              <div class="line-numbers" id="line-numbers">1</div>
+              <textarea class="sql-editor" id="code-editor" placeholder="# Write your Python code here...
+import pandas as pd
+" spellcheck="false"></textarea>
+            </div>
+            <div class="editor-actions">
+              <button class="btn btn-primary" id="run-btn">Run Code</button>
+              <button class="btn btn-secondary" id="reset-btn">Reset</button>
+              <button class="btn btn-success" id="check-btn" style="display: none;">Check Answer</button>
+            </div>
+          </div>
+
+          <div class="results-panel">
+            <div class="panel-header">
+              <h2 class="panel-title">Output / Console</h2>
+            </div>
+            <div class="results-content" id="results-content">
+              <div class="results-empty">
+                <p>Run code to see output</p>
+              </div>
+            </div>
+          </div>
+          
+          <div id="feedback-container"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <script src="curriculum.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
