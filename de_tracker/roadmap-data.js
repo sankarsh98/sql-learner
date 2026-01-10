@@ -16,11 +16,11 @@ const roadmapData = [
         courses: [
             {
                 id: 'py-1',
-                title: 'Python for Data Engineers (Full Course)',
-                provider: 'Ansh Lamba',
+                title: 'Data Engineering Essentials (Python + Tools)',
+                provider: 'freeCodeCamp',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=dN2gaV9FxHI',
-                duration: '6+ hours'
+                url: 'https://www.youtube.com/watch?v=PHsC_t0j1dU',
+                duration: '3 hours'
             },
             {
                 id: 'py-2',
