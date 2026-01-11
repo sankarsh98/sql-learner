@@ -16,11 +16,11 @@ const roadmapData = [
         courses: [
             {
                 id: 'py-1',
-                title: 'Learn Data Engineering Essentials',
-                provider: 'freeCodeCamp',
-                type: 'Video',
-                url: 'https://www.youtube.com/watch?v=OoHPhwEpHEQ',
-                duration: '3 hours'
+                title: 'Data Engineering Zoomcamp',
+                provider: 'DataTalks.Club',
+                type: 'Course',
+                url: 'https://github.com/DataTalksClub/data-engineering-zoomcamp',
+                duration: '10+ weeks'
             },
             {
                 id: 'py-2',
@@ -45,6 +45,14 @@ const roadmapData = [
                 type: 'Playlist',
                 url: 'https://www.youtube.com/playlist?list=PL5-da3qGB5ICCsgW1MxlZ0Hq8LL5U3u9y',
                 duration: '5+ hours'
+            },
+            {
+                id: 'py-5',
+                title: 'Data Engineer Handbook',
+                provider: 'DataExpert.io',
+                type: 'GitHub',
+                url: 'https://github.com/DataExpert-io/data-engineer-handbook',
+                duration: 'Self-paced'
             }
         ]
     },
@@ -77,11 +85,11 @@ const roadmapData = [
             },
             {
                 id: 'sql-3',
-                title: 'SQL Window Functions Mini-Course',
-                provider: 'Alex the Analyst',
+                title: 'SQL Window Functions Explained',
+                provider: 'Maven Analytics',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=K6ybV0L4U5Y',
-                duration: '1 hour'
+                url: 'https://www.youtube.com/watch?v=Ww71knvhQ-s',
+                duration: '30 min'
             },
             {
                 id: 'sql-4',
@@ -89,6 +97,14 @@ const roadmapData = [
                 provider: 'SQLZoo',
                 type: 'Practice',
                 url: 'https://sqlzoo.net/',
+                duration: 'Self-paced'
+            },
+            {
+                id: 'sql-5',
+                title: 'SQL Masterclass',
+                provider: 'Data with Danny',
+                type: 'GitHub',
+                url: 'https://github.com/DataWithDanny/sql-masterclass',
                 duration: 'Self-paced'
             }
         ]
@@ -106,19 +122,19 @@ const roadmapData = [
         courses: [
             {
                 id: 'dm-1',
-                title: 'Dimensional Modeling Deep Dive',
+                title: 'Kimball Dimensional Data Modeling',
                 provider: 'Holistics',
-                type: 'Blog',
-                url: 'https://www.holistics.io/blog/dimensional-modeling-101/',
+                type: 'Guide',
+                url: 'https://www.holistics.io/books/setup-analytics/kimball-s-dimensional-data-modeling/',
                 duration: 'Self-paced'
             },
             {
                 id: 'dm-2',
-                title: 'From Zero to Data Vault 2.0',
-                provider: 'Coalesce',
-                type: 'Video',
-                url: 'https://www.youtube.com/watch?v=l5UcU4fCktI',
-                duration: '45 min'
+                title: 'AutomateDV Getting Started',
+                provider: 'AutomateDV',
+                type: 'Docs',
+                url: 'https://automate-dv.readthedocs.io/en/latest/worked_example/',
+                duration: 'Self-paced'
             },
             {
                 id: 'dm-3',
@@ -135,6 +151,14 @@ const roadmapData = [
                 type: 'Video',
                 url: 'https://www.youtube.com/watch?v=J-drts33N8g',
                 duration: '30 min'
+            },
+            {
+                id: 'dm-5',
+                title: 'dbt Dimensional Modelling Guide',
+                provider: 'Data Engineer Camp',
+                type: 'GitHub',
+                url: 'https://github.com/Data-Engineer-Camp/dbt-dimensional-modelling',
+                duration: 'Self-paced'
             }
         ]
     },
@@ -151,11 +175,11 @@ const roadmapData = [
         courses: [
             {
                 id: 'cloud-1',
-                title: 'AWS Data Engineer Associate Course',
-                provider: 'Johnny Chivers',
-                type: 'Video',
-                url: 'https://www.youtube.com/watch?v=IVJbUChqO2s',
-                duration: '5 hours'
+                title: 'AWS Data Engineering Learning Path',
+                provider: 'AWS Skill Builder',
+                type: 'Course',
+                url: 'https://explore.skillbuilder.aws/learn/public/learning_plan/view/2019/data-engineer-learning-plan',
+                duration: '30+ hours'
             },
             {
                 id: 'cloud-2',
@@ -180,6 +204,14 @@ const roadmapData = [
                 type: 'Course',
                 url: 'https://www.cloudskillsboost.google/course_templates/415',
                 duration: '6 hours'
+            },
+            {
+                id: 'cloud-5',
+                title: 'Awesome Data Engineering',
+                provider: 'Community',
+                type: 'GitHub',
+                url: 'https://github.com/igorbarinov/awesome-data-engineering',
+                duration: 'Self-paced'
             }
         ]
     },
@@ -224,6 +256,14 @@ const roadmapData = [
                 provider: 'Bartosz Mikulski',
                 type: 'Blog',
                 url: 'https://www.mikulskibartosz.name/understanding-spark-memory-allocation/',
+                duration: 'Self-paced'
+            },
+            {
+                id: 'spark-5',
+                title: 'Learning Apache Spark',
+                provider: 'Runawayhorse001',
+                type: 'GitHub',
+                url: 'https://github.com/runawayhorse001/LearningApacheSpark',
                 duration: 'Self-paced'
             }
         ]
@@ -270,6 +310,14 @@ const roadmapData = [
                 type: 'Docs',
                 url: 'https://docs.prefect.io/latest/tutorials/',
                 duration: 'Self-paced'
+            },
+            {
+                id: 'orch-5',
+                title: 'Awesome Apache Airflow',
+                provider: 'Community',
+                type: 'GitHub',
+                url: 'https://github.com/jghoman/awesome-apache-airflow',
+                duration: 'Self-paced'
             }
         ]
     },
@@ -315,6 +363,14 @@ const roadmapData = [
                 type: 'Video',
                 url: 'https://www.youtube.com/watch?v=RCP9-HdId9w',
                 duration: '1 hour'
+            },
+            {
+                id: 'stream-5',
+                title: 'Kafka Flink Streaming Demo',
+                provider: 'Joseph Machado',
+                type: 'GitHub',
+                url: 'https://github.com/josephmachado/beginner_de_project_stream',
+                duration: 'Self-paced'
             }
         ]
     },
@@ -339,11 +395,11 @@ const roadmapData = [
             },
             {
                 id: 'qual-2',
-                title: 'Data Governance for Beginners',
-                provider: 'Alex the Analyst',
-                type: 'Video',
-                url: 'https://www.youtube.com/watch?v=k2k5siDQ6s4',
-                duration: '15 min'
+                title: 'What is Data Governance?',
+                provider: 'IBM',
+                type: 'Guide',
+                url: 'https://www.ibm.com/topics/data-governance',
+                duration: 'Self-paced'
             },
             {
                 id: 'qual-3',
@@ -359,6 +415,14 @@ const roadmapData = [
                 provider: 'Monte Carlo',
                 type: 'Blog',
                 url: 'https://www.montecarlodata.com/blog-what-is-data-observability/',
+                duration: 'Self-paced'
+            },
+            {
+                id: 'qual-5',
+                title: 'Awesome Data Quality',
+                provider: 'Community',
+                type: 'GitHub',
+                url: 'https://github.com/kwanUm/awesome-data-quality',
                 duration: 'Self-paced'
             }
         ]
@@ -405,6 +469,14 @@ const roadmapData = [
                 type: 'Course',
                 url: 'https://github.com/DataTalksClub/mlops-zoomcamp',
                 duration: '10+ weeks'
+            },
+            {
+                id: 'dev-5',
+                title: 'Docker Curriculum',
+                provider: 'Prakhar Srivastav',
+                type: 'GitHub',
+                url: 'https://github.com/prakhar1989/docker-curriculum',
+                duration: 'Self-paced'
             }
         ]
     },
@@ -450,6 +522,14 @@ const roadmapData = [
                 type: 'Blog',
                 url: 'https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/',
                 duration: 'Self-paced'
+            },
+            {
+                id: 'sys-5',
+                title: 'System Design Primer',
+                provider: 'Donne Martin',
+                type: 'GitHub',
+                url: 'https://github.com/donnemartin/system-design-primer',
+                duration: 'Self-paced'
             }
         ]
     },
@@ -466,11 +546,11 @@ const roadmapData = [
         courses: [
             {
                 id: 'ai-1',
-                title: 'ChatGPT Prompt Engineering for Devs',
-                provider: 'DeepLearning.AI',
-                type: 'Course',
-                url: 'https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/',
-                duration: '1 hour'
+                title: 'Prompt Engineering Guide',
+                provider: 'OpenAI',
+                type: 'Docs',
+                url: 'https://platform.openai.com/docs/guides/prompt-engineering',
+                duration: 'Self-paced'
             },
             {
                 id: 'ai-2',
@@ -494,6 +574,14 @@ const roadmapData = [
                 provider: 'Pinecone',
                 type: 'Blog',
                 url: 'https://www.pinecone.io/learn/vector-database/',
+                duration: 'Self-paced'
+            },
+            {
+                id: 'ai-5',
+                title: 'Awesome LLM',
+                provider: 'Community',
+                type: 'GitHub',
+                url: 'https://github.com/Hannibal046/Awesome-LLM',
                 duration: 'Self-paced'
             }
         ]
@@ -519,11 +607,11 @@ const roadmapData = [
             },
             {
                 id: 'soft-2',
-                title: 'Communicating Technical Concepts',
-                provider: 'GitLab Unfiltered',
-                type: 'Video',
-                url: 'https://www.youtube.com/watch?v=Uv9LzshxgEw',
-                duration: '30 min'
+                title: 'Google Technical Writing Course',
+                provider: 'Google',
+                type: 'Course',
+                url: 'https://developers.google.com/tech-writing',
+                duration: '2 hours'
             },
             {
                 id: 'soft-3',
@@ -535,11 +623,19 @@ const roadmapData = [
             },
             {
                 id: 'soft-4',
-                title: 'How to Be a Great Mentor',
-                provider: 'TED',
+                title: 'Mentorship Matters',
+                provider: 'TEDx Talks',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=a5UWjqNfqHY',
+                url: 'https://www.youtube.com/watch?v=18uDutylDa4',
                 duration: '15 min'
+            },
+            {
+                id: 'soft-5',
+                title: 'Awesome Staff+ Engineering',
+                provider: 'Community',
+                type: 'GitHub',
+                url: 'https://github.com/staffeng42/awesome-staff-plus-engineering',
+                duration: 'Self-paced'
             }
         ]
     }
