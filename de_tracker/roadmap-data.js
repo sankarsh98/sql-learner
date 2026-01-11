@@ -16,10 +16,10 @@ const roadmapData = [
         courses: [
             {
                 id: 'py-1',
-                title: 'Data Engineering Essentials (Python + Tools)',
+                title: 'Learn Data Engineering Essentials',
                 provider: 'freeCodeCamp',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=PHsC_t0j1dU',
+                url: 'https://www.youtube.com/watch?v=OoHPhwEpHEQ',
                 duration: '3 hours'
             },
             {
@@ -77,10 +77,10 @@ const roadmapData = [
             },
             {
                 id: 'sql-3',
-                title: 'SQL Window Functions Explained',
-                provider: 'YouTube (techTFQ)',
+                title: 'SQL Window Functions Mini-Course',
+                provider: 'Alex the Analyst',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=zLZGE4VjQpM',
+                url: 'https://www.youtube.com/watch?v=K6ybV0L4U5Y',
                 duration: '1 hour'
             },
             {
@@ -114,11 +114,11 @@ const roadmapData = [
             },
             {
                 id: 'dm-2',
-                title: 'Data Vault 2.0 Introduction',
-                provider: 'Data Vault Alliance',
+                title: 'From Zero to Data Vault 2.0',
+                provider: 'Coalesce',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=W_9j5Ug1bOU',
-                duration: '1.5 hours'
+                url: 'https://www.youtube.com/watch?v=l5UcU4fCktI',
+                duration: '45 min'
             },
             {
                 id: 'dm-3',
@@ -130,10 +130,10 @@ const roadmapData = [
             },
             {
                 id: 'dm-4',
-                title: 'Database Normalization (3NF, BCNF)',
-                provider: 'NordicsIT',
+                title: 'Database Normalization (1NF to BCNF)',
+                provider: 'Code Lucky',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=GFQaEYEc8_8',
+                url: 'https://www.youtube.com/watch?v=J-drts33N8g',
                 duration: '30 min'
             }
         ]
@@ -151,11 +151,11 @@ const roadmapData = [
         courses: [
             {
                 id: 'cloud-1',
-                title: 'AWS Data Engineer Full Course',
-                provider: 'Edureka (YouTube)',
+                title: 'AWS Data Engineer Associate Course',
+                provider: 'Johnny Chivers',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=RWGycxhvXmY',
-                duration: '10 hours'
+                url: 'https://www.youtube.com/watch?v=IVJbUChqO2s',
+                duration: '5 hours'
             },
             {
                 id: 'cloud-2',
@@ -204,11 +204,11 @@ const roadmapData = [
             },
             {
                 id: 'spark-2',
-                title: 'PySpark Full Course',
-                provider: 'Edureka',
+                title: 'PySpark Tutorial (Zero to Pro)',
+                provider: 'Ansh Lamba',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=F2uWaX_UWqs',
-                duration: '5 hours'
+                url: 'https://www.youtube.com/watch?v=EB8lfdxpirM',
+                duration: '6 hours'
             },
             {
                 id: 'spark-3',
@@ -294,11 +294,11 @@ const roadmapData = [
             },
             {
                 id: 'stream-2',
-                title: 'Kafka Python Tutorial',
-                provider: 'Stephane Maarek',
+                title: 'Apache Kafka with Python',
+                provider: 'Confluent',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=sdUqD7O7HDs',
-                duration: '45 min'
+                url: 'https://www.youtube.com/watch?v=qi7uR3ItaOY',
+                duration: '40 min'
             },
             {
                 id: 'stream-3',
@@ -339,11 +339,11 @@ const roadmapData = [
             },
             {
                 id: 'qual-2',
-                title: 'Data Governance Explained',
+                title: 'Data Governance for Beginners',
                 provider: 'Alex the Analyst',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=8MzR8q4Sp6w',
-                duration: '20 min'
+                url: 'https://www.youtube.com/watch?v=k2k5siDQ6s4',
+                duration: '15 min'
             },
             {
                 id: 'qual-3',
@@ -511,19 +511,19 @@ const roadmapData = [
         courses: [
             {
                 id: 'soft-1',
-                title: 'Tech Lead Skills for Engineers',
-                provider: 'YouTube (Healthy Software Developer)',
+                title: 'How to Become a Tech Lead',
+                provider: 'Fireship',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=r88qLxCPGpc',
-                duration: '30 min'
+                url: 'https://www.youtube.com/watch?v=0SARbwvhupQ',
+                duration: '10 min'
             },
             {
                 id: 'soft-2',
-                title: 'How to Communicate Technical Concepts',
-                provider: 'Harvard Business Review',
-                type: 'Article',
-                url: 'https://hbr.org/2021/08/how-to-talk-to-senior-leaders-about-technical-issues',
-                duration: 'Self-paced'
+                title: 'Communicating Technical Concepts',
+                provider: 'GitLab Unfiltered',
+                type: 'Video',
+                url: 'https://www.youtube.com/watch?v=Uv9LzshxgEw',
+                duration: '30 min'
             },
             {
                 id: 'soft-3',
@@ -535,10 +535,10 @@ const roadmapData = [
             },
             {
                 id: 'soft-4',
-                title: 'Mentorship for Engineers',
-                provider: 'YouTube (Tina Huang)',
+                title: 'How to Be a Great Mentor',
+                provider: 'TED',
                 type: 'Video',
-                url: 'https://www.youtube.com/watch?v=hMBVQ1OOG5Y',
+                url: 'https://www.youtube.com/watch?v=a5UWjqNfqHY',
                 duration: '15 min'
             }
         ]
